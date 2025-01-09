@@ -8,23 +8,24 @@
  "field_order": [
   "section_break_nhvi",
   "passenger",
-  "source_airport",
+  "status",
   "source_airport_code",
   "column_break_ycsm",
   "flight",
-  "destination_airport",
+  "seat",
   "destination_airport_code",
+  "add_on_details_section",
+  "add_ons",
+  "section_break_udsc",
+  "flight_price",
+  "column_break_cybw",
+  "total_amount",
   "departure_details_section",
   "departure_date",
   "departure_time",
   "column_break_umjo",
   "duration_of_flight",
-  "status",
-  "amended_from",
-  "add_on_details_section",
-  "add_ons",
-  "flight_price",
-  "total_amount"
+  "amended_from"
  ],
  "fields": [
   {
@@ -42,13 +43,6 @@
    "search_index": 1
   },
   {
-   "fieldname": "source_airport",
-   "fieldtype": "Link",
-   "label": "Source Airport",
-   "options": "Airport",
-   "reqd": 1
-  },
-  {
    "fieldname": "column_break_ycsm",
    "fieldtype": "Column Break"
   },
@@ -56,18 +50,11 @@
    "fieldname": "flight",
    "fieldtype": "Link",
    "label": "Flight",
-   "options": "Airplane",
+   "options": "Airplane Flight",
    "reqd": 1
   },
   {
-   "fieldname": "destination_airport",
-   "fieldtype": "Link",
-   "label": "Destination Airport",
-   "options": "Airport",
-   "reqd": 1
-  },
-  {
-   "fetch_from": "source_airport.code",
+   "fetch_from": "flight.source_airport_code",
    "fieldname": "source_airport_code",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -76,7 +63,7 @@
    "reqd": 1
   },
   {
-   "fetch_from": "destination_airport.code",
+   "fetch_from": "flight.destination_airport_code",
    "fieldname": "destination_airport_code",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -90,6 +77,7 @@
    "label": "Departure Details"
   },
   {
+   "fetch_from": "flight.date",
    "fieldname": "departure_date",
    "fieldtype": "Date",
    "in_filter": 1,
@@ -97,6 +85,7 @@
    "reqd": 1
   },
   {
+   "fetch_from": "flight.time",
    "fieldname": "departure_time",
    "fieldtype": "Time",
    "label": "Departure Time",
@@ -107,6 +96,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "fetch_from": "flight.duration",
    "fieldname": "duration_of_flight",
    "fieldtype": "Duration",
    "label": "Duration of Flight",
@@ -131,8 +121,7 @@
   },
   {
    "fieldname": "add_on_details_section",
-   "fieldtype": "Section Break",
-   "label": "Other Details"
+   "fieldtype": "Section Break"
   },
   {
    "fieldname": "add_ons",
@@ -151,12 +140,25 @@
    "fieldtype": "Currency",
    "label": "Total Amount",
    "read_only": 1
+  },
+  {
+   "fieldname": "seat",
+   "fieldtype": "Data",
+   "label": "Seat"
+  },
+  {
+   "fieldname": "section_break_udsc",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_cybw",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-12-20 21:48:28.929967",
+ "modified": "2025-01-09 13:25:39.555788",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Airplane Ticket",
@@ -174,6 +176,42 @@
    "role": "System Manager",
    "share": 1,
    "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "if_owner": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Travel Agent",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Flight Crew Member",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Airport Authority Personnel",
+   "share": 1,
    "write": 1
   }
  ],

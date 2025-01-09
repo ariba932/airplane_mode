@@ -1,0 +1,16 @@
+<div class="container mt-5">
+	<div class="row">
+		
+			<!-- {{ (doc.title or doc.name) |e }} -->
+			<div class="card">
+				<div class="card-body">
+					<h4 class="card-title">{{doc.airplane}}</h5>
+					<p class="card-text">{{doc.source_airport_code}}->{{doc.destination_airport_code }} <br>
+					{{frappe.format_date(doc.date, "d MMMM, YYYY")}} | {{frappe.format(doc.time)}} | {{frappe.utils.format_duration(doc.duration) }}</p>
+					<a href="/{{ doc.route |e }}" class="btn btn-primary"> view flight</a>
+				</div>
+			</div>
+	</div>	
+</div>
+
+<!-- this is a sample default list template -->

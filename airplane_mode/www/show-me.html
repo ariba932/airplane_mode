@@ -1,0 +1,13 @@
+{% extends "templates/web.html" %}
+
+{% block page_content %}
+
+    {% set color = frappe.form_dict.color %}
+    {% if color  %}
+        <div class="container" style="background-color:{{color}}; width:500px; height:500px;"> tesr 2</div>
+    {% else %}
+        <div class="container" style="background-color:black"> testing </div>
+    {% endif %} 
+    {% endblock %}
+
+    <!-- this is a sample default web page template -->
