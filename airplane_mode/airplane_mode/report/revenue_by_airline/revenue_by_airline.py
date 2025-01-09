@@ -55,9 +55,12 @@ def get_data() -> list[list]:
 
 	The report data is a list of rows, with each row being a list of cell values.
 	"""
+	# Get all airlines 
+	airlines = frappe.get_all("Airline", fields=["name"])
 	#get all the tickets
 	tickets = frappe.get_all("Airplane Ticket",fields=["name","flight","total_amount"])
-	revenue_airline={}
+
+	revenue_airline = {airline.name: 0 for airline in airlines}
 	
 	#run through each ticket and reference flight to get the airplane and airline
 	for ticket in tickets:
@@ -68,6 +71,7 @@ def get_data() -> list[list]:
 			revenue_airline[airline] =0
 		#sum it um
 		revenue_airline[airline] += ticket.total_amount
+		#print("data issue",flight,airline,ticket.total_amount)
 	
 	data = []
 	for airline, total_revenue in revenue_airline.items():
@@ -75,7 +79,7 @@ def get_data() -> list[list]:
 			"airline":airline,
 			"total_revenue":total_revenue
 		})
-
+	print("data dump:", data)
 	return data
 
 def get_summary(data): 
