@@ -8,10 +8,10 @@
  "engine": "InnoDB",
  "field_order": [
   "airplane",
+  "route",
   "column_break_towe",
   "status",
   "is_published",
-  "route",
   "airport_details_section",
   "source_airport",
   "source_airport_code",
@@ -21,6 +21,7 @@
   "departure_details_section",
   "date",
   "duration",
+  "gate_number",
   "column_break_tain",
   "time",
   "amended_from"
@@ -132,6 +133,11 @@
    "fieldname": "route",
    "fieldtype": "Data",
    "label": "Route"
+  },
+  {
+   "fieldname": "gate_number",
+   "fieldtype": "Data",
+   "label": "Gate Number"
   }
  ],
  "has_web_view": 1,
@@ -144,7 +150,7 @@
    "link_fieldname": "name"
   }
  ],
- "modified": "2025-01-09 13:19:31.024085",
+ "modified": "2025-01-16 16:19:53.656492",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Airplane Flight",

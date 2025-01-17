@@ -23,6 +23,7 @@
   "departure_details_section",
   "departure_date",
   "departure_time",
+  "departure_gate",
   "column_break_umjo",
   "duration_of_flight",
   "amended_from"
@@ -153,12 +154,18 @@
   {
    "fieldname": "column_break_cybw",
    "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "flight.gate_number",
+   "fieldname": "departure_gate",
+   "fieldtype": "Data",
+   "label": "Departure Gate"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-09 13:25:39.555788",
+ "modified": "2025-01-16 16:23:14.021539",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Airplane Ticket",

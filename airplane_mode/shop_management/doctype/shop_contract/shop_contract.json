@@ -1,0 +1,131 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:CNT-{shop_no}-{####}",
+ "creation": "2025-01-17 16:43:52.086926",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_ytfl",
+  "amended_from",
+  "shop_no",
+  "tenant_name",
+  "rent_amount",
+  "column_break_biee",
+  "status",
+  "payment_term",
+  "start_date",
+  "contract_period",
+  "expiration_date"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_ytfl",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Shop Contract",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "tenant_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Tenant Name",
+   "options": "Tenant",
+   "reqd": 1
+  },
+  {
+   "fieldname": "rent_amount",
+   "fieldtype": "Currency",
+   "label": "Rent Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Start Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "contract_period",
+   "fieldtype": "Duration",
+   "hide_seconds": 1,
+   "label": "Contract Period",
+   "reqd": 1
+  },
+  {
+   "fieldname": "expiration_date",
+   "fieldtype": "Date",
+   "label": "Expiration Date",
+   "read_only": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nActive\nExpired"
+  },
+  {
+   "fieldname": "column_break_biee",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "shop_no",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Shop No",
+   "link_filters": "[[\"Shop\",\"status\",\"=\",\"Available\"]]",
+   "options": "Shop",
+   "reqd": 1
+  },
+  {
+   "fieldname": "payment_term",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Payment Term",
+   "options": "Monthly\nYearly",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [
+  {
+   "link_doctype": "Shop Payment",
+   "link_fieldname": "contract_no"
+  }
+ ],
+ "modified": "2025-01-17 20:54:34.999729",
+ "modified_by": "Administrator",
+ "module": "Shop Management",
+ "name": "Shop Contract",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

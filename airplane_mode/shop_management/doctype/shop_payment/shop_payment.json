@@ -1,0 +1,108 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:PMT-{DD}{MM}{YY}-{####}",
+ "creation": "2025-01-17 17:11:52.899441",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_zvz9",
+  "amended_from",
+  "contract_no",
+  "payment_date",
+  "column_break_gnoo",
+  "invoice_amount",
+  "paid_amount",
+  "description",
+  "receipt_download"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_zvz9",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Shop Payment",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "contract_no",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Contract No",
+   "options": "Shop Contract",
+   "reqd": 1
+  },
+  {
+   "description": "Bank Account Credit Date",
+   "fieldname": "payment_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Payment Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "label": "Description",
+   "read_only": 1
+  },
+  {
+   "fieldname": "receipt_download",
+   "fieldtype": "Attach",
+   "label": "Receipt Download"
+  },
+  {
+   "fieldname": "column_break_gnoo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "paid_amount",
+   "fieldtype": "Currency",
+   "label": "Paid Amount",
+   "options": "NGN",
+   "precision": "2"
+  },
+  {
+   "fetch_from": "contract_no.rent_amount",
+   "fieldname": "invoice_amount",
+   "fieldtype": "Currency",
+   "label": "Invoice Amount",
+   "options": "NGN",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-01-17 20:40:51.169916",
+ "modified_by": "Administrator",
+ "module": "Shop Management",
+ "name": "Shop Payment",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

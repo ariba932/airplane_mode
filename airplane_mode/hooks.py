@@ -245,3 +245,5 @@ app_license = "mit"
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+#To include the Enabled DocType along
+Fixtures = [{'dt':'Shop Type', 'filters':{'enabled':1}}]   

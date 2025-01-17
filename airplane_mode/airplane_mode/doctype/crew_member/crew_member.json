@@ -1,0 +1,227 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "format:CM-{####}",
+ "creation": "2025-01-16 12:35:52.773475",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "bio_information_section",
+  "last_name",
+  "other_name",
+  "full_name",
+  "personal_email",
+  "column_break_xaba",
+  "date_of_birth",
+  "gender",
+  "photo",
+  "nationality",
+  "personal_phone_number",
+  "operations_section",
+  "role",
+  "airline",
+  "travel_hours",
+  "column_break_wugd",
+  "license",
+  "license_expiration",
+  "next_medical_check",
+  "other_details_section",
+  "emergency_contact",
+  "next_of_kin_name"
+ ],
+ "fields": [
+  {
+   "fieldname": "bio_information_section",
+   "fieldtype": "Section Break",
+   "label": "Bio Information"
+  },
+  {
+   "fieldname": "last_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Last Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "other_name",
+   "fieldtype": "Data",
+   "label": "Other Name"
+  },
+  {
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "label": "Full Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_xaba",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date of Birth",
+   "reqd": 1
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "label": "Gender",
+   "options": "Male\nFemale\nOthers",
+   "reqd": 1
+  },
+  {
+   "fieldname": "photo",
+   "fieldtype": "Attach Image",
+   "hidden": 1,
+   "label": "Photo"
+  },
+  {
+   "fieldname": "operations_section",
+   "fieldtype": "Section Break",
+   "label": "Operations"
+  },
+  {
+   "fieldname": "role",
+   "fieldtype": "Select",
+   "label": "Role",
+   "options": "Pilot\nCo-Pilot\nSnr Flight Attendant\nFlight Attendant",
+   "reqd": 1
+  },
+  {
+   "default": "0.00",
+   "fieldname": "travel_hours",
+   "fieldtype": "Float",
+   "label": "Travel Hours",
+   "read_only": 1
+  },
+  {
+   "fieldname": "airline",
+   "fieldtype": "Link",
+   "label": "Airline",
+   "options": "Airline",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_wugd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "license",
+   "fieldtype": "Data",
+   "label": "License",
+   "reqd": 1
+  },
+  {
+   "fieldname": "license_expiration",
+   "fieldtype": "Date",
+   "label": "License Expiration",
+   "reqd": 1
+  },
+  {
+   "fieldname": "next_medical_check",
+   "fieldtype": "Date",
+   "label": "Next Medical Check",
+   "reqd": 1
+  },
+  {
+   "fieldname": "other_details_section",
+   "fieldtype": "Section Break",
+   "label": "Other Details"
+  },
+  {
+   "fieldname": "emergency_contact",
+   "fieldtype": "Phone",
+   "label": "Emergency Contact"
+  },
+  {
+   "fieldname": "next_of_kin_name",
+   "fieldtype": "Data",
+   "label": "Next of Kin Name"
+  },
+  {
+   "fieldname": "nationality",
+   "fieldtype": "Data",
+   "label": "Nationality"
+  },
+  {
+   "fieldname": "personal_email",
+   "fieldtype": "Data",
+   "label": "Personal Email",
+   "reqd": 1
+  },
+  {
+   "fieldname": "personal_phone_number",
+   "fieldtype": "Phone",
+   "label": "Personal Phone Number"
+  }
+ ],
+ "image_field": "photo",
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "link_doctype": "Crew Flight Register",
+   "link_fieldname": "crew_member"
+  }
+ ],
+ "modified": "2025-01-16 18:04:58.125515",
+ "modified_by": "Administrator",
+ "module": "Airplane Mode",
+ "name": "Crew Member",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Airport Authority Personnel",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Flight Crew Member",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Fleet Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "full_name"
+}
