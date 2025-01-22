@@ -13,10 +13,11 @@ class AirplaneTicket(Document):
 
 		#To calculate the total amount
 		sum=0.00
-		for add_on in self.add_ons:
-			sum+=add_on.amount
+		if self.add_ons:
+			for add_on in self.add_ons:
+				sum+=add_on.amount
 		
-		self.total_amount = int(self.flight_price)+int(sum)
+		self.total_amount = float(self.flight_price)+float(sum)
 
 		#generate seat if non exist
 		#if not self.seat:

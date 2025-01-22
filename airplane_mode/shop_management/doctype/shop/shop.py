@@ -2,8 +2,11 @@
 # For license information, please see license.txt
 
 # import frappe
-from frappe.model.document import Document
+from frappe.website.website_generator import WebsiteGenerator
+from frappe.website.utils import cleanup_page_name
 
 
-class Shop(Document):
-	pass
+class Shop(WebsiteGenerator):
+	def validate(self):
+		if not self.route:
+			self.route = f"shops/{cleanup_page_name(self.name)}"

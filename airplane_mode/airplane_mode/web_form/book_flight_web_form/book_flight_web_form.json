@@ -21,8 +21,8 @@
  "list_columns": [],
  "login_required": 0,
  "max_attachment_size": 0,
- "modified": "2024-12-28 23:05:28.391271",
- "modified_by": "Administrator",
+ "modified": "2025-01-21 15:10:47.846025",
+ "modified_by": "ariba932@gmail.com",
  "module": "Airplane Mode",
  "name": "book-flight-web-form",
  "owner": "Administrator",
@@ -32,7 +32,8 @@
  "show_list": 0,
  "show_sidebar": 0,
  "success_message": "You will receive the details in your email soon",
- "success_title": "Ticket Booked",
+ "success_title": "Ticket Booked Successfuly!",
+ "success_url": "http://localhost:8000/flights",
  "title": "Book Flight Web Form",
  "web_form_fields": [
   {

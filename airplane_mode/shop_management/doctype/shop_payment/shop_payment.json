@@ -13,8 +13,7 @@
   "column_break_gnoo",
   "invoice_amount",
   "paid_amount",
-  "description",
-  "receipt_download"
+  "description"
  ],
  "fields": [
   {
@@ -36,8 +35,10 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Contract No",
+   "link_filters": "[[\"Shop Contract\",\"docstatus\",\"=\",\"1\"]]",
    "options": "Shop Contract",
-   "reqd": 1
+   "reqd": 1,
+   "search_index": 1
   },
   {
    "description": "Bank Account Credit Date",
@@ -52,11 +53,6 @@
    "fieldtype": "Data",
    "label": "Description",
    "read_only": 1
-  },
-  {
-   "fieldname": "receipt_download",
-   "fieldtype": "Attach",
-   "label": "Receipt Download"
   },
   {
    "fieldname": "column_break_gnoo",
@@ -81,7 +77,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-17 20:40:51.169916",
+ "modified": "2025-01-19 19:13:56.189037",
  "modified_by": "Administrator",
  "module": "Shop Management",
  "name": "Shop Payment",

@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_guest_to_view": 1,
  "allow_rename": 1,
  "autoname": "format:{location}-{shop_no}-{###}",
  "creation": "2025-01-17 14:15:25.914425",
@@ -8,8 +9,12 @@
  "field_order": [
   "type",
   "shop_no",
+  "shop_name",
+  "is_published",
   "photo",
+  "route",
   "column_break_fepl",
+  "port",
   "location",
   "area",
   "status"
@@ -39,14 +44,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "location",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Location",
-   "options": "Airport",
-   "reqd": 1
-  },
-  {
    "description": "Shop Area Measurement in Meter Squares",
    "fieldname": "area",
    "fieldtype": "Float",
@@ -67,12 +64,46 @@
    "in_list_view": 1,
    "label": "Status",
    "options": "Available\nOccupied\nConstruction"
+  },
+  {
+   "fieldname": "port",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Port",
+   "options": "Airport",
+   "reqd": 1
+  },
+  {
+   "fieldname": "shop_name",
+   "fieldtype": "Data",
+   "label": "Shop Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Location",
+   "reqd": 1
+  },
+  {
+   "fieldname": "route",
+   "fieldtype": "Data",
+   "label": "Route"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_published",
+   "fieldtype": "Check",
+   "label": "Is Published?"
   }
  ],
+ "has_web_view": 1,
  "image_field": "photo",
  "index_web_pages_for_search": 1,
+ "is_published_field": "is_published",
  "links": [],
- "modified": "2025-01-17 20:53:32.440712",
+ "modified": "2025-01-19 22:42:44.522435",
  "modified_by": "Administrator",
  "module": "Shop Management",
  "name": "Shop",

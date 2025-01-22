@@ -137,7 +137,8 @@
   {
    "fieldname": "gate_number",
    "fieldtype": "Data",
-   "label": "Gate Number"
+   "label": "Gate Number",
+   "reqd": 1
   }
  ],
  "has_web_view": 1,
@@ -148,9 +149,13 @@
   {
    "link_doctype": "Airplane",
    "link_fieldname": "name"
+  },
+  {
+   "link_doctype": "Crew Flight Register",
+   "link_fieldname": "flight"
   }
  ],
- "modified": "2025-01-16 16:19:53.656492",
+ "modified": "2025-01-21 14:55:00.816523",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Airplane Flight",
@@ -212,7 +217,6 @@
    "share": 1
   }
  ],
- "route": "flights",
  "sort_field": "creation",
  "sort_order": "DESC",
  "states": [],

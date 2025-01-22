@@ -1,0 +1,62 @@
+{%- extends "templates/shops/base.html" -%}
+
+{% block head_script_tags %}
+{% endblock %}
+
+{% block body %}
+<main class="container is-max-widescreen">
+    <div class="mb-4">
+        <a href="/shops" class="btn btn-secondary">
+            <span class="mr-2">←</span> Back to Shops
+        </a>
+    </div>
+    <article class="flex two-900">
+        <div class="shop-main-image">
+            <img src="{{doc.photo}}" alt="Shop Main View" class="shop-main-image">
+        </div>
+        <div class="shop-detail-container">
+            <div class="row">
+                <div class="col-12">
+                    {% if doc.shop_name %}
+                        <h1 class="shop-title">{{ doc.shop_name }}</h1>
+                    {% else %}
+                        <h1 class="shop-title">{{ doc.shop_no }}</h1>
+                    {% endif %}
+                    <div class="status-badge {% if doc.status == 'Available' %}available{% else %}occupied{% endif %}">
+                        {{ doc.status }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="shop-main-info mt-4">
+                <div class="shop-main-info-item">
+                    <div class="shop-main-info-label">Shop No:</div>
+                    <div class="shop-main-info-value">{{ doc.shop_no }}</div>
+                </div>
+                <div class="shop-main-info-item">
+                    <div class="shop-main-info-label">Airport:</div>
+                    <div class="shop-main-info-value">{{ doc.port }}</div>
+                </div>
+                <div class="shop-main-info-item">
+                    <div class="shop-main-info-label">Location:</div>
+                    <div class="shop-main-info-value">{{ doc.location }}</div>
+                </div>
+                <div class="shop-main-info-item">
+                    <div class="shop-main-info-label">Type:</div>
+                    <div class="shop-main-info-value">{{ doc.type }}</div>
+                </div>
+                <div class="shop-main-info-item">
+                    <div class="shop-main-info-label">Area Size:</div>
+                    <div class="shop-main-info-value">{{ doc.area }}</div>
+                </div>
+
+            </div>
+
+            <div class="cta-section mt-4">
+                <a class="button" href="http://localhost:8000/shop-booking/new?shop={{ doc.shop_no }}">Request Information</a>
+                
+            </div>
+        </div>
+    </article>
+</main>
+{% endblock %}

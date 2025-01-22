@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/airplane_mode/css/picnic.css">
+    {%- block head_script_tags -%} {%- endblock -%}
+
+    <title>Airport Shop Spaces</title>
+    <style>
+        .hero {
+            background-color: #3b4160;
+            color: white;
+            padding: 4rem 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .shop-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .shop-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .shop-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .shop-info {
+            padding: 1.5rem;
+        }
+
+        .shop-type {
+            color: #4B61D1;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .shop-tile{
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .shop-location {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        .shop-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+        .shop-detail-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        .shop-main-image{
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        .shop-main-info{
+            display: flex;
+            flex-direction:column;
+            gap:1.5rem;
+        }
+        .shop-main-info-header{
+            margin-bottom:2rem;
+        }
+        .shop-main-info-grid{
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 1rem;
+            align-items: baseline;
+        }
+        .shop-main-info-label {
+            font-weight: bold;
+            font-size:1.2rem;
+            color: #666;
+            min-width: 120px;
+        }
+        .shop-main-info-value {
+            color: #333;
+            font-size: 1.2rem;
+        }
+        .shop-main-info-item{
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--gray-200);
+        }
+        .status {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .status.available {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .status.occupied {
+            background-color: #ffebee;
+            color: #c62828;
+        }
+        .status.contruction {
+            background-color: #ffebee;
+            color: #dfce13;
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .status-badge.available {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .status-badge.occupied {
+            background-color: #ffebee;
+            color: #c62828;
+        }
+
+        .status-badge.contruction {
+            background-color: #ffebee;
+            color: #dfce13;
+        }
+
+        .cta-section {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #757fb0;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+
+        .cta-button:hover {
+            background-color: #25337a;
+        }
+
+        .nav.shop {
+            background-color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Mobile Navigation Styles */
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            min-width: 200px;
+            z-index: 1000;
+        }
+
+        .dropdown.active {
+            display: block;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: #333;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .dropdown a:hover {
+            background-color: #f5f5f5;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 3rem 0;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: #4B61D1;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #354599;
+        }
+
+        .footer-info {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .footer-social {
+            margin: 2rem 0;
+        }
+
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #4B61D1;
+            color: white;
+            margin: 0 0.5rem;
+            transition: background-color 0.2s;
+        }
+
+        .footer-social a:hover {
+            background-color: #354599;
+        }
+
+        .footer-bottom {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+            color: #999;
+            font-size: 0.8rem;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+  	.modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 800px; /* Increased for two columns */
+            width: 90%;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            transition: border-color 0.2s;
+        }
+
+        .form-input:focus {
+            border-color: #4B61D1;
+            outline: none;
+        }
+
+        .error-message {
+            color: #c62828;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .success-message {
+            color: #2e7d32;
+            text-align: center;
+            padding: 1rem;
+            display: none;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .shop-grid {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+            
+            .hero {
+                padding: 2rem 1rem;
+            }
+            .menu {
+                display: none;
+            }
+            .hamburger {
+                display: block;
+            }
+            .nav.shop {
+                padding: 0.5rem 1rem;
+            }
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .footer-content {
+                padding: 0 1rem;
+            }
+
+            .footer {
+                padding: 2rem 0;
+                margin-top: 2rem;
+            }
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .shop-main-info-item {
+                grid-template-columns: 1fr;
+                gap: 0.25rem;
+            }
+        }
+        
+    </style>
+</head>
+
+<body class="antialiased">
+    {% include "templates/shops/navbar.html" %}
+    <div>
+        {%- block body -%} {%- endblock -%}
+    </div>
+    {% include "templates/shops/footer.html" %}
+</body>
+
+</html>

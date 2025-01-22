@@ -6,7 +6,8 @@
  "engine": "InnoDB",
  "field_order": [
   "shop",
-  "prospect_name",
+  "last_name",
+  "first_name",
   "email",
   "phone",
   "column_break_hark",
@@ -20,12 +21,6 @@
    "in_list_view": 1,
    "label": "Shop",
    "options": "Shop"
-  },
-  {
-   "fieldname": "prospect_name",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Prospect Name"
   },
   {
    "fieldname": "email",
@@ -52,11 +47,22 @@
   {
    "fieldname": "column_break_hark",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_name",
+   "fieldtype": "Data",
+   "label": "Last Name"
+  },
+  {
+   "fieldname": "first_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "First Name"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-17 17:35:16.481430",
+ "modified": "2025-01-21 13:42:15.014753",
  "modified_by": "Administrator",
  "module": "Shop Management",
  "name": "Shop Online Lead",

@@ -1,0 +1,43 @@
+{% extends "templates/shops/base.html" %}
+
+{% block body %}
+<main class="container is-max-widescreen">
+    <div class="hero">
+        <div class="container">
+            <h1>Airport Shop Rental Services</h1>
+            <p>Unique Design of Shop Spaces within Airport ambiences.</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="shop-grid">
+            {% for shop in shops %}
+            <div class="shop-card">
+                <a href="{{ shop.route }}">
+                    <img src="{{ shop.photo }}" alt="Shop Photo" class="shop-image">
+                    <div class="shop-info">
+                        <div class="shop-type">Shop type - {{ shop.type}}</div>
+                        <div class="shop-location">Location - {{shop.port }} at {{shop.location}}</div>
+                        <span class="status {{ shop.status | lower }}">{{ shop.status }}</span>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</main>
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById('mobileMenu');
+        menu.classList.toggle('active');
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+        const menu = document.getElementById('mobileMenu');
+        const hamburger = document.querySelector('.hamburger');
+        if (!menu.contains(event.target) && !hamburger.contains(event.target)) {
+            menu.classList.remove('active');
+        }
+    });
+</script>
+{% endblock %}
