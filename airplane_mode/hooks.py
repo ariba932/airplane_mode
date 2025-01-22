@@ -168,6 +168,12 @@ app_license = "mit"
 # 		"airplane_mode.tasks.monthly"
 # 	],
 # }
+#schedule to call daily payment checks
+scheduler_events = {
+    "daily": [
+        "airplane_mode.schedule_event.send_payment_reminders"
+    ]
+}
 
 # Testing
 # -------
@@ -245,5 +251,14 @@ app_license = "mit"
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
-#To include the Enabled DocType along
-Fixtures = [{'dt':'Shop Type', 'filters':{'enabled':1}}]   
+#To include the Enabled shop type along
+fixtures = [
+    {
+        "doctype": "Shop Type",
+        "filters": [
+            {
+                "type_name": ["in", ["Stall", "Walk-through", "Normal"]]
+            }
+        ]
+    }
+]

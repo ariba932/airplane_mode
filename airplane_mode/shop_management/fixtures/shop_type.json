@@ -1,0 +1,14 @@
+[
+    {
+        "doctype": "Shop Type",
+        "type_name": "Stall"
+    },
+    {
+        "doctype": "Shop Type",
+        "type_name": "Walk-through"
+    },
+    {
+        "doctype": "Shop Type",
+        "type_name": "Normal"
+    }
+]

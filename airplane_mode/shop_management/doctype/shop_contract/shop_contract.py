@@ -14,15 +14,18 @@ class ShopContract(Document):
 		shop = frappe.get_doc('Shop',self.shop_no)
 		if shop.area:
 			self.rent_amount = rate*shop.area
+			self.payment_due_date=self.start_date 
 		else:
 			frappe.throw("Rent settings is required")
 		print("duration data",self.contract_period)
 		#compute the expiration date
 		if self.start_date and self.contract_period:
 			start_date = datetime.strptime(self.start_date, '%Y-%m-%d') 
-			self.expiration_date  = start_date + timedelta(days=(self.contract_period// 86400)) 
-			
+			self.expiration_date  = start_date + timedelta(days=(self.contract_period// 86400))
+		
+	#On saving of the Shop Contract - ensure the status is set to "Active and also payment due date set to start date"
 	def before_submit(self):
 		self.status ="Active"
+		self.payment_due_date=self.start_date 
 
 		

@@ -13,7 +13,8 @@
   "column_break_gnoo",
   "invoice_amount",
   "paid_amount",
-  "description"
+  "description",
+  "status"
  ],
  "fields": [
   {
@@ -72,12 +73,19 @@
    "label": "Invoice Amount",
    "options": "NGN",
    "read_only": 1
+  },
+  {
+   "default": "Unpaid",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Unpaid\nPartial\nPaid"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-19 19:13:56.189037",
+ "modified": "2025-01-22 14:26:10.090069",
  "modified_by": "Administrator",
  "module": "Shop Management",
  "name": "Shop Payment",

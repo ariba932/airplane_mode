@@ -153,9 +153,13 @@
   {
    "link_doctype": "Crew Flight Register",
    "link_fieldname": "flight"
+  },
+  {
+   "link_doctype": "Airplane Ticket",
+   "link_fieldname": "flight"
   }
  ],
- "modified": "2025-01-21 14:55:00.816523",
+ "modified": "2025-01-22 18:59:24.791737",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Airplane Flight",

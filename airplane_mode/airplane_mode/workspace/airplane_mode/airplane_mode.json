@@ -1,7 +1,16 @@
 {
  "app": "frappe",
- "charts": [],
- "content": "[{\"id\":\"086n-_AFFj\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"All Airplanes\",\"col\":3}},{\"id\":\"96aTCwykb9\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"All Passengers\",\"col\":3}},{\"id\":\"DS_DxWM_jZ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Airlines\",\"col\":3}},{\"id\":\"EqIhPVKnRV\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"All Crew Members\",\"col\":3}}]",
+ "charts": [
+  {
+   "chart_name": "Shop per Airport",
+   "label": "Shop Per Airport"
+  },
+  {
+   "chart_name": "PaidAmount",
+   "label": "Shop Payment"
+  }
+ ],
+ "content": "[{\"id\":\"086n-_AFFj\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"All Airplanes\",\"col\":3}},{\"id\":\"96aTCwykb9\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"All Passengers\",\"col\":3}},{\"id\":\"DS_DxWM_jZ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Airlines\",\"col\":3}},{\"id\":\"EqIhPVKnRV\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"All Crew Members\",\"col\":3}},{\"id\":\"HUmpU_kVBL\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"YhJLKsxh9n\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Shop Management</b></span>\",\"col\":12}},{\"id\":\"60wCrFqSVa\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Occupied Shop\",\"col\":4}},{\"id\":\"x-8oKdNvEN\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Available Shop\",\"col\":4}},{\"id\":\"Lw3s4wgZyC\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Active Contract Count\",\"col\":4}},{\"id\":\"kzyIm26O9Z\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"OJxLsqhAp4\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Shop Payment\",\"col\":12}},{\"id\":\"pdY1W8lb00\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Shop Per Airport\",\"col\":12}}]",
  "creation": "2024-12-18 00:54:16.450498",
  "custom_blocks": [],
  "docstatus": 0,
@@ -15,11 +24,24 @@
  "label": "Airplane Mode",
  "link_type": "DocType",
  "links": [],
- "modified": "2025-01-16 16:17:47.052997",
- "modified_by": "Administrator",
+ "modified": "2025-01-22 14:05:03.461495",
+ "modified_by": "ariba932@gmail.com",
  "module": "Airplane Mode",
  "name": "Airplane Mode",
- "number_cards": [],
+ "number_cards": [
+  {
+   "label": "Occupied Shop",
+   "number_card_name": "Occupied Shop count"
+  },
+  {
+   "label": "Available Shop",
+   "number_card_name": "Available Shop Count"
+  },
+  {
+   "label": "Active Contract Count",
+   "number_card_name": "Active Contract No"
+  }
+ ],
  "owner": "Administrator",
  "parent_page": "",
  "public": 1,

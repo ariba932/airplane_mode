@@ -51,11 +51,12 @@
                 </div>
 
             </div>
-
-            <div class="cta-section mt-4">
-                <a class="button" href="http://localhost:8000/shop-booking/new?shop={{ doc.shop_no }}">Request Information</a>
-                
-            </div>
+            <!-- Ignore this this button if shop already occupied -->
+            {% if not  doc.status=="Occupied" %}
+                <div class="cta-section mt-4">
+                    <a class="button" href="http://localhost:8000/shop-booking/new?shop={{ doc.shop_no }}">Request Information</a>
+                </div>
+            {% endif %}
         </div>
     </article>
 </main>
