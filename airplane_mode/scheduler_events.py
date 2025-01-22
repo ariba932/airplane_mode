@@ -2,7 +2,7 @@ import frappe
 from frappe.utils import nowdate, add_days, date_diff, getdate
 
 def send_payment_reminders():
-
+   
     # First check if reminder is enabled in Shop Settings
     shop_settings = frappe.get_single("Shop Settings")
     if not shop_settings.payment_reminder:
@@ -11,18 +11,18 @@ def send_payment_reminders():
     
     #Proceed with other items.
     today = getdate(nowdate())
-
+    
     # Get contracts where due date is between today+5 and today
     contracts = frappe.get_all(
         "Shop Contract",
         filters=[
             ["payment_due_date", ">=", today],
             ["payment_due_date", "<=", add_days(today, 5)],
-            ["status","==","Active"],
+            ["status","=","Active"],
         ],
         fields=["name", "payment_due_date", "rent_amount", "tenant_name"]
     )
-
+    print("Start sending", contracts)
     # If no contracts found, exit early
     if not contracts:
         return

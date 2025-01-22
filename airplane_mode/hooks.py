@@ -171,7 +171,7 @@ app_license = "mit"
 #schedule to call daily payment checks
 scheduler_events = {
     "daily": [
-        "airplane_mode.schedule_event.send_payment_reminders"
+        "airplane_mode.scheduler_events.send_payment_reminders"
     ]
 }
 
